@@ -70,6 +70,7 @@ function calculaValorTotalDaCompra(produtos, cidade, caixa, frete){
 }
 
 console.log(calculaValorTotalDaCompra(['Arroz', 'Feijão'], 'São Paulo', caixa, fretes));
+console.log(' ');
 
 /**
  03) Em que situações devemos usar uma implementação de Map ao invés de uma implementação de objeto literal?
@@ -89,3 +90,49 @@ frequentemente?
 Se as respostas para as perguntas forem positivas, são sinais de
 que você provavelmente quer usar uma instância de Map. 
  */
+
+/*
+04) Crie um exemplo de uso para a estrutura de WeakMap.
+R: Armazenar dados privados dentro de uma classe.
+*/
+
+/*
+05) Implemente o método deletaAmigos que recebe dois parâmetros:
+
+- amigos: Mapa com relação de nome e informações sobre os amigos
+- exAmigos: Lista com nome dos amigos que deve ser deletado
+
+Para cada nome em exAmigos, você deve:
+
+- Verificar se nome consta na lista. Se sim, deletá-lo e imprimir no console: " foi deletado!"
+- Se o nome não estiver no mapa de amigos, exibir no console para o usuário: " não é seu amigo!"
+
+Considere os seguintes amigos para este exercícios:
+
+Nome            Dados
+João Silva      idade: 23, gênero: masculino
+Luisa Pimenta   idade: 18, gênero: feminino
+Julio Marinho   idade: 52, gênero: masculino
+Marcela Mel     idade: 27, gênero: feminino
+*/
+
+const amigo = new Map();
+amigo.set("João Silva", { idade: 23, sexo: 'masculino' });
+amigo.set("Luisa Pimenta", { idade: 18, sexo: 'feminino' });
+amigo.set("Julio Marinho", { idade: 52, sexo: 'masculino' });
+amigo.set("Marcela Mel", { idade: 27, sexo: 'feminino' });
+
+function deletaAmigos(amigos, exAmigos) {
+  for(let exAmigo of exAmigos) {
+    if(amigos.has(exAmigo)) {
+      amigos.delete(exAmigo);
+      console.log(`${exAmigo} foi deletado(a)!`);
+    }
+    else console.log(`${exAmigo} não é seu amigo(a)!`);
+  }
+}
+
+deletaAmigos(amigo, ['Luisa Pimenta', 'Henrique Costa', 'Julio Marinho']);
+
+
+
