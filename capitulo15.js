@@ -124,6 +124,19 @@ const pontos = [
 ]
 */
 
+let pontos = [
+  [1,2],
+  [3,4],
+  [5,6]
+];
 
+function convertToModel2(pontos) {
+  const novosPontos = pontos.map(([x, y]) => {
+    return {x, y};
+  })
+  return pontos = novosPontos;
+}
+
+console.log(convertToModel2(pontos));
 
 
